@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS scores (
 ## Difficulty Levels
 - **Easy** - 45 seconds, 3x score multiplier
 - **Medium** - 30 seconds, 5x score multiplier
-- **Hard** - 20 seconds, 8x score multiplier
+- **Hard** - 20 seconds, 8x score multiplier, Shuffle every wrong
 
 ## Score Calculation
 Score is calculated as: `100 * level * difficulty_multiplier`
