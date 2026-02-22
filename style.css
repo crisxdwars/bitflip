@@ -344,7 +344,6 @@ button:hover {
         height: 200px; width: 300px;
     }
 
-    /* Game Select Modal Responsive */
     #game-select-modal {
         width: 90%; max-width: 350px;
     }
@@ -354,7 +353,6 @@ button:hover {
     }
 }
 
-/* Game Selection Modal Styles */
 #game-select-modal.hidden {
     visibility: hidden;
     opacity: 0;
@@ -495,7 +493,6 @@ button:hover {
     border-color: var(--text-secondary);
 }
 
-/* Auth Modal - Slides from right */
 .auth-modal.hidden {
     visibility: hidden;
     opacity: 0;
@@ -698,7 +695,6 @@ button:hover {
     color: var(--text-primary);
 }
 
-/* Leaderboard Modal - Slides from right */
 .open-section {
     text-align: center;
     margin-top: 30px;
@@ -873,7 +869,6 @@ button:hover {
     font-weight: bold;
 }
 
-/* Error Modal Styles */
 .error-modal {
     position: fixed;
     top: -100px;
@@ -944,7 +939,6 @@ button:hover {
     color: #ff4444;
 }
 
-/* Success Modal */
 .error-modal.success {
     border: var(--borders);
 }

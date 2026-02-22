@@ -11,7 +11,6 @@ function escapeHtml(s) {
         .replaceAll("'", '&#039;');
 }
 
-// Mode-specific card pairs
 const dataTypesPairs = [
     { id: 1, text: "int", color: "color-1", def: "Integer: Whole numbers" },
     { id: 2, text: "str", color: "color-2", def: "String: Text data" },
@@ -78,7 +77,6 @@ let currentMode = 'datatypes';
 let currentDifficulty = 'easy';
 let isLoggedIn = false;
 
-// Check login status on load
 async function checkLoginStatus() {
     try {
         console.log('Checking login status...');
@@ -221,14 +219,11 @@ function initGame() {
     const grid = document.getElementById('card-grid');
     grid.innerHTML = "";
     
-    // Check login status
     checkLoginStatus();
     
-    // Initialize mode and difficulty
     getMode();
     getDifficulty();
     
-    // Adjust time based on difficulty
     const difficultyTime = {
         'easy': 45,
         'medium': 30,
@@ -240,7 +235,6 @@ function initGame() {
     let levelPairs = allPairs.slice(0, pairsCount);
     let cardData = [];
     levelPairs.forEach(p => {
-        // Create two cards with same color (matching pairs)
         cardData.push({ id: p.id, text: p.text, color: p.color, def: p.def });
         cardData.push({ id: p.id, text: p.text, color: p.color, def: p.def });
     });
@@ -277,15 +271,12 @@ function flipCard() {
 
 function checkMatch() {
     const [c1, c2] = flippedCards;
-    // Match by color instead of id
     if (c1.dataset.color === c2.dataset.color) {
         playSound('audio/correct.mp3'); 
         
-        // Score for correct match
         const scoreForCorrect = getScoreForCorrect();
         score += scoreForCorrect;
         
-        // Time bonus for correct match
         const timeBonus = getTimeBonus();
         timeLeft += timeBonus;
         
@@ -312,7 +303,6 @@ function checkMatch() {
     } else {
         playSound('audio/wrong.mp3'); 
         
-        // Apply time penalty for wrong answer
         const penalty = getWrongPenalty();
         if (penalty > 0) {
             timeLeft = Math.max(0, timeLeft - penalty);
@@ -354,12 +344,10 @@ function createStars() {
 function nextLevel() {
     clearInterval(timerInterval);
     
-    // Add level completion bonus
     const levelBonus = getLevelBonus();
     score += levelBonus;
     document.getElementById('score').textContent = score;
     
-    // Submit score at level completion
     if (isLoggedIn) {
         submitScore();
     }
@@ -402,7 +390,6 @@ function showGameOver() {
         restartBtn.onclick = () => location.reload();
     }
     
-    // Show message for guests
     if (!isLoggedIn) {
         const messageEl = document.getElementById('gameover-message');
         if (messageEl) {

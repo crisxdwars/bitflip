@@ -41,7 +41,6 @@
             </section>
         </main>
 
-        <!-- Game Over Modal -->
         <div class="gameover-backdrop" id="gameover-backdrop" hidden></div>
         <div class="gameover-modal" id="gameover-modal" hidden>
             <div class="gameover-card">
@@ -60,12 +59,10 @@
 
     <script src="game1.js"></script>
     <script>
-        // Get URL parameters for mode and difficulty
         const urlParams = new URLSearchParams(window.location.search);
         const gameMode = urlParams.get('mode');
         const gameDifficulty = urlParams.get('difficulty');
 
-        // Display mode and difficulty on the game page
         if (gameMode) {
             const modeDisplay = gameMode === 'datatypes' ? 'Data Types' : 
                               gameMode === 'vb' ? 'Visual Basic' : gameMode;
@@ -77,7 +74,6 @@
             document.getElementById('game-difficulty').textContent = diffDisplay;
         }
 
-        // Apply theme from localStorage
         const htmlElement = document.documentElement;
         const STORAGE_KEY = 'user-theme';
 
