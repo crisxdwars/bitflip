@@ -60,4 +60,4 @@ Score is calculated as: `100 * level * difficulty_multiplier`
 - **Light** - Light theme
 - **Pink** - Pink theme
 
-Theme preference is saved in localStorage and persists across sessions.
+Nag sesave yung theme colors sa ibang page.
