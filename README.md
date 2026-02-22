@@ -29,6 +29,8 @@ CREATE TABLE IF NOT EXISTS scores (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 ```
 
+
+
 # API Endpoints
 
 ## Authentication
@@ -61,3 +63,7 @@ Score is calculated as: `100 * level * difficulty_multiplier`
 - **Pink** - Pink theme
 
 Nag sesave yung theme colors sa ibang page.
+
+# PS
+
+- `"includes/config.php"` - Andito ang mga dapat ayusin

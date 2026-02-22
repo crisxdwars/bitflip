@@ -4,13 +4,10 @@ declare(strict_types=1);
 
 $config = require __DIR__ . '/config.php';
 
-// Configure session for cross-directory access
 session_name('l2fa_session');
 
-// Set session cookie path to root for all directories
 $basePath = dirname($_SERVER['SCRIPT_NAME'] ?? '');
 if ($basePath !== '/' && $basePath !== '\\') {
-    // If running from a subdirectory, set cookie path to root
     session_set_cookie_params(0, '/');
 }
 
@@ -61,7 +58,6 @@ function current_user_id(): ?int
 {
     $id = $_SESSION['user_id'] ?? null;
     if ($id === null) return null;
-    // Convert string to int if needed
     if (is_string($id) && is_numeric($id)) {
         return (int)$id;
     }

@@ -10,7 +10,6 @@ $password2 = get_post_string('password2');
 $isAjax = isset($_POST['ajax']) || isset($_SERVER['HTTP_X_REQUESTED_WITH']);
 $redirect = safe_redirect_target(get_post_string('redirect'), '/index.html');
 
-// Validation
 if ($username === '') {
     if ($isAjax) {
         json_response(['ok' => false, 'error' => 'empty_username', 'message' => 'Username is required']);
@@ -51,7 +50,6 @@ if (strlen($password) < 6) {
     exit;
 }
 
-// Check if username already exists
 $stmt = $pdo->prepare('SELECT id FROM users WHERE username = ? LIMIT 1');
 $stmt->execute([$username]);
 if ($stmt->fetch()) {

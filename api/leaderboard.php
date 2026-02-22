@@ -6,7 +6,6 @@ require_once __DIR__ . '/../includes/bootstrap.php';
 
 $mode = isset($_GET['mode']) ? $_GET['mode'] : '';
 
-// Get scores per user per mode/difficulty, keeping highest score with its level
 if ($mode === 'all' || empty($mode)) {
     $stmt = $pdo->query("SELECT 
         u.username,
@@ -35,7 +34,6 @@ if ($mode === 'all' || empty($mode)) {
     $rows = $stmt->fetchAll();
 }
 
-// Format guest usernames
 foreach ($rows as &$row) {
     if (empty($row['username']) || strpos($row['username'], 'guest_') === 0) {
         $row['username'] = 'Guest';
