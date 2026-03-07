@@ -77,7 +77,6 @@
         }
       }
     } catch (e) {
-      // ignore
     }
   }
 

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../includes/bootstrap.php';
 
-// Check if user is logged in -
 $uid = current_user_id();
 if ($uid === null) {
     json_response(['ok' => false, 'error' => 'login_required', 'message' => 'You must be logged in to save your score']);

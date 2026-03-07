@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 return [
     'db' => [
-        'host' => 'here',
-        'name' => 'here',
-        'user' => 'here',
-        'pass' => 'here',
-        'charset' => 'utf8mb4', //ignore nyo tong charset
+        'host' => 'sql200.ezyro.com',
+        'name' => 'ezyro_41126937_dnf',
+        'user' => 'ezyro_41126937',
+        'pass' => '3e056415bd',
+        'charset' => 'utf8mb4',
     ],
     'base_url' => '',
 ];

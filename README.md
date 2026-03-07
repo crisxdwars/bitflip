@@ -29,8 +29,6 @@ CREATE TABLE IF NOT EXISTS scores (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 ```
 
-
-
 # API Endpoints
 
 ## Authentication
@@ -52,7 +50,7 @@ CREATE TABLE IF NOT EXISTS scores (
 ## Difficulty Levels
 - **Easy** - 45 seconds, 3x score multiplier
 - **Medium** - 30 seconds, 5x score multiplier
-- **Hard** - 20 seconds, 8x score multiplier, Shuffle every wrong
+- **Hard** - 20 seconds, 8x score multiplier
 
 ## Score Calculation
 Score is calculated as: `100 * level * difficulty_multiplier`
@@ -62,8 +60,4 @@ Score is calculated as: `100 * level * difficulty_multiplier`
 - **Light** - Light theme
 - **Pink** - Pink theme
 
-Nag sesave yung theme colors sa ibang page.
-
-# PS
-
-- `"includes/config.php"` - Andito ang mga dapat ayusin
+Theme preference is saved in localStorage and persists across sessions.

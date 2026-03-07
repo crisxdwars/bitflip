@@ -30,39 +30,39 @@ const dataTypesPairs = [
 ];
 
 const vbPairs = [
-    { id: 1, text: "Integer", color: "color-1", def: "Integer: Whole numbers" },
-    { id: 2, text: "String", color: "color-2", def: "String: Text data" },
-    { id: 3, text: "Boolean", color: "color-3", def: "Boolean: True/False" },
-    { id: 4, text: "Single", color: "color-4", def: "Single: Decimal numbers" },
-    { id: 5, text: "Array", color: "color-5", def: "Array: Collection of items" },
-    { id: 6, text: "Variant", color: "color-6", def: "Variant: Any data type" },
-    { id: 7, text: "Long", color: "color-7", def: "Long: Large integers" },
-    { id: 8, text: "Double", color: "color-8", def: "Double: Double precision" },
-    { id: 9, text: "Currency", color: "color-9", def: "Currency: Money format" },
-    { id: 10, text: "Date", color: "color-10", def: "Date: Date value" },
-    { id: 11, text: "Object", color: "color-11", def: "Object: Base class" },
-    { id: 12, text: "Byte", color: "color-12", def: "Byte: 0-255 values" },
-    { id: 13, text: "Decimal", color: "color-13", def: "Decimal: Precise numbers" },
-    { id: 14, text: "Short", color: "color-14", def: "Short: Small integers" },
-    { id: 15, text: "Char", color: "color-15", def: "Char: Single character" }
+    { id: 1, text: "Integer", color: "color-1", def: "Integer: Whole numbers", example: "Dim num As Integer = 42" },
+    { id: 2, text: "String", color: "color-2", def: "String: Text data", example: "Dim name As String = \"Hello\"" },
+    { id: 3, text: "Boolean", color: "color-3", def: "Boolean: True/False", example: "Dim flag As Boolean = True" },
+    { id: 4, text: "Single", color: "color-4", def: "Single: Decimal numbers", example: "Dim dec As Single = 3.14" },
+    { id: 5, text: "Array", color: "color-5", def: "Array: Collection of items", example: "Dim arr(5) As Integer" },
+    { id: 6, text: "Variant", color: "color-6", def: "Variant: Any data type", example: "Dim v As Variant" },
+    { id: 7, text: "Long", color: "color-7", def: "Long: Large integers", example: "Dim bigNum As Long" },
+    { id: 8, text: "Double", color: "color-8", def: "Double: Double precision", example: "Dim dbl As Double = 1.5" },
+    { id: 9, text: "Currency", color: "color-9", def: "Currency: Money format", example: "Dim money As Currency" },
+    { id: 10, text: "Date", color: "color-10", def: "Date: Date value", example: "Dim dt As Date = #1/1/2024#" },
+    { id: 11, text: "Object", color: "color-11", def: "Object: Base class", example: "Dim obj As Object" },
+    { id: 12, text: "Byte", color: "color-12", def: "Byte: 0-255 values", example: "Dim b As Byte = 255" },
+    { id: 13, text: "Decimal", color: "color-13", def: "Decimal: Precise numbers", example: "Dim dec As Decimal" },
+    { id: 14, text: "Short", color: "color-14", def: "Short: Small integers", example: "Dim s As Short = 100" },
+    { id: 15, text: "Char", color: "color-15", def: "Char: Single character", example: "Dim c As Char = \"A\"" }
 ];
 
 const htmlPairs = [
-    { id: 1, text: "<div>", color: "color-1", def: "Div: Block-level container" },
-    { id: 2, text: "<span>", color: "color-2", def: "Span: Inline container" },
-    { id: 3, text: "<a>", color: "color-3", def: "Anchor: Hyperlink" },
-    { id: 4, text: "<img>", color: "color-4", def: "Image: Embeds pictures" },
-    { id: 5, text: "<ul>", color: "color-5", def: "Unordered List" },
-    { id: 6, text: "<p>", color: "color-6", def: "Paragraph: Text block" },
-    { id: 7, text: "<h1>", color: "color-7", def: "Heading 1: Main title" },
-    { id: 8, text: "<h2>", color: "color-8", def: "Heading 2: Subtitle" },
-    { id: 9, text: "<button>", color: "color-9", def: "Button: Clickable button" },
-    { id: 10, text: "<input>", color: "color-10", def: "Input: User input field" },
-    { id: 11, text: "<form>", color: "color-11", def: "Form: Input container" },
-    { id: 12, text: "<table>", color: "color-12", def: "Table: Data table" },
-    { id: 13, text: "<tr>", color: "color-13", def: "Table Row: Table row" },
-    { id: 14, text: "<td>", color: "color-14", def: "Table Data: Cell" },
-    { id: 15, text: "<br>", color: "color-15", def: "Break: Line break" }
+    { id: 1, text: "<div>", color: "color-1", def: "Div: Block-level container", example: "<div>Content</div>" },
+    { id: 2, text: "<span>", color: "color-2", def: "Span: Inline container", example: "<span>Text</span>" },
+    { id: 3, text: "<a>", color: "color-3", def: "Anchor: Hyperlink", example: "<a href=\"url\">Link</a>" },
+    { id: 4, text: "<img>", color: "color-4", def: "Image: Embeds pictures", example: "<img src=\"image.jpg\">" },
+    { id: 5, text: "<ul>", color: "color-5", def: "Unordered List", example: "<ul><li>Item</li></ul>" },
+    { id: 6, text: "<p>", color: "color-6", def: "Paragraph: Text block", example: "<p>This is a paragraph.</p>" },
+    { id: 7, text: "<h1>", color: "color-7", def: "Heading 1: Main title", example: "<h1>Title</h1>" },
+    { id: 8, text: "<h2>", color: "color-8", def: "Heading 2: Subtitle", example: "<h2>Subtitle</h2>" },
+    { id: 9, text: "<button>", color: "color-9", def: "Button: Clickable button", example: "<button>Click</button>" },
+    { id: 10, text: "<input>", color: "color-10", def: "Input: User input field", example: "<input type=\"text\">" },
+    { id: 11, text: "<form>", color: "color-11", def: "Form: Input container", example: "<form>Inputs</form>" },
+    { id: 12, text: "<table>", color: "color-12", def: "Table: Data table", example: "<table><tr><td>Cell</td></tr></table>" },
+    { id: 13, text: "<tr>", color: "color-13", def: "Table Row: Table row", example: "<tr><td>Data</td></tr>" },
+    { id: 14, text: "<td>", color: "color-14", def: "Table Data: Cell", example: "<td>Content</td>" },
+    { id: 15, text: "<br>", color: "color-15", def: "Break: Line break", example: "Line 1<br>Line 2" }
 ];
 
 let currentLevel = 1;
@@ -76,6 +76,8 @@ let isGameOver = false;
 let currentMode = 'datatypes';
 let currentDifficulty = 'easy';
 let isLoggedIn = false;
+let isTimerPaused = false;
+let examplePopupTimeout = null;
 
 async function checkLoginStatus() {
     try {
@@ -225,18 +227,22 @@ function initGame() {
     getDifficulty();
     
     const difficultyTime = {
-        'easy': 45,
-        'medium': 30,
+        'easy': 60,
+        'medium': 45,
         'hard': 20
     };
     timeLeft = difficultyTime[currentDifficulty];
+    
+    const timerEl = document.getElementById('timer');
+    timerEl.classList.remove('warning', 'danger');
+    timerEl.textContent = `00:${timeLeft.toString().padStart(2, '0')}`;
     
     const allPairs = getPairsForMode();
     let levelPairs = allPairs.slice(0, pairsCount);
     let cardData = [];
     levelPairs.forEach(p => {
-        cardData.push({ id: p.id, text: p.text, color: p.color, def: p.def });
-        cardData.push({ id: p.id, text: p.text, color: p.color, def: p.def });
+        cardData.push({ id: p.id, text: p.text, color: p.color, def: p.def, example: p.example });
+        cardData.push({ id: p.id, text: p.text, color: p.color, def: p.def, example: p.example });
     });
 
     cardData.sort(() => Math.random() - 0.5);
@@ -246,6 +252,7 @@ function initGame() {
         card.className = 'card';
         card.dataset.color = data.color;
         card.dataset.def = data.def;
+        card.dataset.example = data.example || '';
         card.innerHTML = `
             <div class="card-back"></div>
             <div class="card-front ${data.color}">
@@ -281,12 +288,25 @@ function checkMatch() {
         timeLeft += timeBonus;
         
         document.getElementById('score').textContent = score;
-        document.getElementById('timer').textContent = `00:${timeLeft.toString().padStart(2, '0')}`;
+        const timerEl = document.getElementById('timer');
+        timerEl.textContent = `00:${timeLeft.toString().padStart(2, '0')}`;
+        
+        timerEl.classList.remove('warning', 'danger');
+        if (timeLeft <= 5) {
+            timerEl.classList.add('danger');
+        } else if (timeLeft <= 10) {
+            timerEl.classList.add('warning');
+        }
         
         const defContainer = document.querySelector('.definition-section');
         const defText = document.getElementById('definition-text');
         
-        defText.textContent = c1.dataset.def;
+        if ((currentMode === 'html' || currentMode === 'vb') && c1.dataset.example) {
+            defText.innerHTML = '<div class="def-text">' + c1.dataset.def + '</div>';
+            showExamplePopup(c1.dataset.example);
+        } else {
+            defText.innerHTML = '<div class="def-text">' + c1.dataset.def + '</div>';
+        }
         defContainer.classList.add('shock-container');
         defText.classList.add('shock-text');
 
@@ -297,6 +317,9 @@ function checkMatch() {
             defText.classList.remove('shock-text');
         }, 600);
 
+        c1.classList.add('matched');
+        c2.classList.add('matched');
+        
         matchedCount++;
         flippedCards = [];
         if (matchedCount === pairsCount) setTimeout(nextLevel, 1000);
@@ -306,15 +329,81 @@ function checkMatch() {
         const penalty = getWrongPenalty();
         if (penalty > 0) {
             timeLeft = Math.max(0, timeLeft - penalty);
-            document.getElementById('timer').textContent = `00:${timeLeft.toString().padStart(2, '0')}`;
+            const timerEl = document.getElementById('timer');
+            timerEl.textContent = `00:${timeLeft.toString().padStart(2, '0')}`;
+            
+            timerEl.classList.remove('warning', 'danger');
+            if (timeLeft <= 5) {
+                timerEl.classList.add('danger');
+            } else if (timeLeft <= 10) {
+                timerEl.classList.add('warning');
+            }
         }
         
-        setTimeout(() => {
+        if (currentDifficulty === 'hard') {
+            c1.dataset.tempId = 'exclude1';
+            c2.dataset.tempId = 'exclude2';
+            
             c1.classList.remove('flipped');
             c2.classList.remove('flipped');
+            
+            shuffleUnmatchedCards();
+            
             flippedCards = [];
-        }, 400);
+        } else {
+            setTimeout(() => {
+                c1.classList.remove('flipped');
+                c2.classList.remove('flipped');
+                flippedCards = [];
+            }, 400);
+        }
     }
+}
+
+function shuffleUnmatchedCards() {
+    const grid = document.getElementById('card-grid');
+    const allCards = Array.from(grid.querySelectorAll('.card'));
+    
+    const fixedCards = []; 
+    const movableCards = []; 
+    
+    allCards.forEach((card, index) => {
+        const isMatched = card.classList.contains('matched');
+        const isExcluded = card.dataset.tempId === 'exclude1' || card.dataset.tempId === 'exclude2';
+        
+        if (isMatched || isExcluded) {
+            fixedCards.push({ index, card });
+        } else {
+            movableCards.push({ index, card });
+        }
+    });
+    
+    if (movableCards.length < 2) {
+        allCards.forEach(card => card.removeAttribute('data-temp-id'));
+        return;
+    }
+    
+    const cardsToShuffle = movableCards.map(m => m.card);
+    
+    for (let i = cardsToShuffle.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [cardsToShuffle[i], cardsToShuffle[j]] = [cardsToShuffle[j], cardsToShuffle[i]];
+    }
+    
+    const newGridOrder = new Array(allCards.length);
+    
+    fixedCards.forEach(({ index, card }) => {
+        newGridOrder[index] = card;
+    });
+    
+    movableCards.forEach(({ index }, i) => {
+        newGridOrder[index] = cardsToShuffle[i];
+    });
+    
+    grid.innerHTML = '';
+    newGridOrder.forEach(card => grid.appendChild(card));
+    
+    grid.querySelectorAll('.card').forEach(card => card.removeAttribute('data-temp-id'));
 }
 
 function createStars() {
@@ -361,8 +450,23 @@ function nextLevel() {
 function startTimer() {
     clearInterval(timerInterval);
     timerInterval = setInterval(() => {
+        if (isTimerPaused) return;
+        
         timeLeft--;
-        document.getElementById('timer').textContent = `00:${timeLeft.toString().padStart(2, '0')}`;
+        const timerEl = document.getElementById('timer');
+        timerEl.textContent = `00:${timeLeft.toString().padStart(2, '0')}`;
+        
+        timerEl.classList.remove('pulse');
+        void timerEl.offsetWidth;
+        timerEl.classList.add('pulse');
+        
+        timerEl.classList.remove('warning', 'danger');
+        if (timeLeft <= 5) {
+            timerEl.classList.add('danger');
+        } else if (timeLeft <= 10) {
+            timerEl.classList.add('warning');
+        }
+        
         if (timeLeft <= 0) {
             clearInterval(timerInterval);
             isGameOver = true;
@@ -404,5 +508,51 @@ function playSound(audioPath) {
     sound.currentTime = 0;
     sound.play().catch(() => {});
 }
+
+function showExamplePopup(exampleCode) {
+    const popup = document.getElementById('example-popup');
+    const backdrop = document.getElementById('example-backdrop');
+    const codeEl = document.getElementById('example-code');
+    
+    if (!popup || !backdrop || !codeEl) return;
+    if (!exampleCode) return;
+    
+    codeEl.textContent = exampleCode;
+    
+    isTimerPaused = true;
+    
+    popup.classList.remove('hidden');
+    backdrop.classList.remove('hidden');
+    
+    if (examplePopupTimeout) clearTimeout(examplePopupTimeout);
+    examplePopupTimeout = setTimeout(hideExamplePopup, 3000);
+}
+
+function hideExamplePopup() {
+    const popup = document.getElementById('example-popup');
+    const backdrop = document.getElementById('example-backdrop');
+    
+    if (popup) popup.classList.add('hidden');
+    if (backdrop) backdrop.classList.add('hidden');
+    
+    isTimerPaused = false;
+    
+    if (examplePopupTimeout) {
+        clearTimeout(examplePopupTimeout);
+        examplePopupTimeout = null;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const popup = document.getElementById('example-popup');
+    const backdrop = document.getElementById('example-backdrop');
+    
+    if (popup) {
+        popup.addEventListener('click', hideExamplePopup);
+    }
+    if (backdrop) {
+        backdrop.addEventListener('click', hideExamplePopup);
+    }
+});
 
 initGame();

@@ -3,29 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="global_13.css">
+    <link rel="stylesheet" href="global_13.css?v=12">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>BitFlip - Game</title>
 </head>
 <body>
-
     <div class="page">
-        <header class="topbar">
-            <nav class="topbar-actions">
-                <a class="buttons small" href="../index.html">Home</i></a>
-            </nav>
-        </header>
-
         <main class="game-container">
             <section class="definition-section">
-                <div id="definition-text" class="def-content">Achieve your highest score as possible!</div>
+                <div class="def-header">DEFINITION</div>
+                <div id="definition-text" class="def-content">
+                    <div class="def-text">Flip the cards to get the highest score!</div>
+                </div>
+                <div class="def-footer">
+                    <button class="restart-btn" onclick="location.reload()">RESTART GAME</button>
+                    <button class="home-btn" onclick="location.href='../index.html'">HOME</button>
+                </div>
             </section>
 
             <section class="game-section">
                 <div class="game-info-bar">
                     <div class="stat-box"><span>LVL: </span><span id="level">1</span></div>
-                    <div class="stat-box"><span>TIME LEFT: </span><span id="timer">00:30</span></div>
+                    <div class="stat-box"><span>TIME LEFT: </span><span id="timer" class="timer-display">00:30</span></div>
                     <div class="stat-box"><span>MODE: </span><span id="game-mode">--</span></div>
                     <div class="stat-box"><span>DIFFICULTY: </span><span id="game-difficulty">--</span></div>
                     <div class="stat-box score-box"><span>SCORE: </span><span id="score">0</span></div>
@@ -33,10 +33,6 @@
 
                 <div class="board">
                     <div id="card-grid" class="card-grid"></div>
-                </div>
-
-                <div class="game-actions">
-                    <button class="buttons restart-btn" onclick="location.reload()">RESTART GAME</button>
                 </div>
             </section>
         </main>
@@ -55,6 +51,12 @@
                     <button class="buttons" type="button" onclick="location.href='../index.html'">HOME</button>
                 </div>
             </div>
+        </div>
+
+        <div class="example-popup-backdrop hidden" id="example-backdrop"></div>
+        <div class="example-popup hidden" id="example-popup">
+            <div class="example-popup-label">Example</div>
+            <div class="example-popup-code" id="example-code"></div>
         </div>
 
     <script src="game1.js"></script>

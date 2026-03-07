@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BitFlip - Home</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=12">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
@@ -23,7 +23,6 @@
                         <select data-theme-selector>
                             <option value="dark" selected>Dark</option>
                             <option value="light">Light</option>
-                            <option value="pink">Pink</option>
                         </select>
                     </div>
                 </p>
@@ -32,7 +31,6 @@
         
     </div>
     
-    <!-- Mode and Difficulty Selection Modal -->
     <div class="hidden" id="game-select-modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -121,7 +119,6 @@
         </div>
     </div>
 
-    <!-- Login/Signup Modal (slides from right) -->
     <div class="auth-modal hidden" id="auth-modal">
         <div class="auth-panel">
             <div class="auth-panel-head">
@@ -135,7 +132,6 @@
             </div>
             
             <div class="auth-panel-body">
-                <!-- Login Form -->
                 <form class="auth-form" id="login-form" onsubmit="handleLogin(event)">
                     <div class="auth-field">
                         <span class="auth-field-label">Username</span>
@@ -154,7 +150,6 @@
                     <p class="auth-hint">Login is required to submit scores.</p>
                 </form>
                 
-                <!-- Register Form -->
                 <form class="auth-form hidden" id="register-form" onsubmit="handleRegister(event)">
                     <div class="auth-field">
                         <span class="auth-field-label">Username</span>
@@ -179,7 +174,6 @@
                         </div>
                     </div>
                     <button class="auth-submit" type="submit" id="register-btn">Create Account</button>
-                    <!--<p class="auth-hint">Password must be atleast 6 characters.</p>-->
                 </form>
             </div>
         </div>
@@ -227,7 +221,6 @@
         function closeGameModal() {
             document.getElementById('game-select-modal').classList.add('hidden');
             document.getElementById('backdrop1').classList.add('backdrop0');
-            // Reset selections
             resetSelections();
         }
 
@@ -290,12 +283,10 @@
 
         function startGame() {
             if (selectedMode && selectedDifficulty) {
-                // Redirect to game.html with mode and difficulty parameters
                 window.location.href = `game/game.html?mode=${selectedMode}&difficulty=${selectedDifficulty}`;
             }
         }
 
-        // Leaderboard Modal Functions
         function openLeaderboardModal() {
             document.getElementById('lb-modal').classList.remove('hidden');
             document.getElementById('backdrop1').classList.remove('backdrop0');
@@ -391,7 +382,6 @@
             }
         }
 
-        // Auth Modal Functions
         function openAuthModal() {
             document.getElementById('auth-modal').classList.remove('hidden');
             document.getElementById('backdrop1').classList.remove('backdrop0');
@@ -424,7 +414,6 @@
             }
         }
 
-        // Show/Hide Password Toggle
         function togglePassword(inputId, button) {
             const input = document.getElementById(inputId);
             const icon = button.querySelector('i');
@@ -440,7 +429,6 @@
             }
         }
 
-        // Error/Success Modal Functions
         function showErrorModal(title, message, isSuccess = false) {
             const modal = document.getElementById('error-modal');
             const icon = document.getElementById('error-icon');
@@ -462,7 +450,6 @@
             
             modal.classList.remove('hidden');
             
-            // Auto-hide after 4 seconds for success messages
             if (isSuccess) {
                 setTimeout(() => {
                     closeErrorModal();
@@ -474,7 +461,6 @@
             document.getElementById('error-modal').classList.add('hidden');
         }
 
-        // Handle Login Form Submit
         async function handleLogin(event) {
             event.preventDefault();
             
@@ -499,16 +485,13 @@
                 const data = await response.json();
                 
                 if (data.ok) {
-                    // Login successful
                     showErrorModal('Welcome!', 'Login successful!', true);
                     closeAuthModal();
                     checkLoginStatus();
                     
-                    // Clear form
                     document.getElementById('login-username').value = '';
                     document.getElementById('login-password').value = '';
                 } else {
-                    // Login failed - show error modal
                     showErrorModal('Login Failed', data.message || 'Invalid credentials');
                 }
             } catch (error) {
@@ -519,7 +502,6 @@
             btn.textContent = 'Login';
         }
 
-        // Handle Register Form Submit
         async function handleRegister(event) {
             event.preventDefault();
             
@@ -528,7 +510,6 @@
             const password2 = document.getElementById('reg-password2').value;
             const btn = document.getElementById('register-btn');
             
-            // Client-side validation
             if (password !== password2) {
                 showErrorModal('Registration Failed', 'Passwords do not match');
                 return;
@@ -562,17 +543,14 @@
                 const data = await response.json();
                 
                 if (data.ok) {
-                    // Registration successful
                     showErrorModal('Welcome!', 'Account created successfully!', true);
                     closeAuthModal();
                     checkLoginStatus();
                     
-                    // Clear form
                     document.getElementById('reg-username').value = '';
                     document.getElementById('reg-password').value = '';
                     document.getElementById('reg-password2').value = '';
                 } else {
-                    // Registration failed - show error modal
                     showErrorModal('Registration Failed', data.message || 'An error occurred');
                 }
             } catch (error) {
@@ -583,7 +561,6 @@
             btn.textContent = 'Create Account';
         }
 
-        // Check if user is logged in
         async function checkLoginStatus() {
             try {
                 const response = await fetch('auth/me.php');
@@ -610,7 +587,6 @@
             }
         }
 
-        // Check login status on page load
         document.addEventListener('DOMContentLoaded', function() {
             checkLoginStatus();
         });
