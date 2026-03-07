@@ -10,27 +10,24 @@
 <body>
     <div id="backdrop1" class="backdrop0"></div>
     <div class="hidden" id="option-menu">
-        <div class="top-option">
-            <i class="fa-solid fa-gear"></i>
-            <h1 class="option-title">Option</h1>
-            <button class="closebtn" onclick="options()">X</button>
+        <div class="option-header">
+            <span class="option-title">Settings</span>
+            <button class="option-close-btn" onclick="options()">✕</button>
         </div>
-        <div class="option-container">
-            <div class="theme-box">
-                <h1>Personalization</h1>
-                <p>Theme color:
-                    <div class="selectbox">
-                        <select data-theme-selector>
-                            <option value="dark" selected>Dark</option>
-                            <option value="light">Light</option>
-                        </select>
-                    </div>
-                </p>
+        <div class="option-content">
+            <div class="option-item">
+                <div class="option-label">
+                    <span>Dark Mode</span>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="theme-toggle" checked>
+                    <span class="toggle-slider"></span>
+                </label>
             </div>
         </div>
-        
+
     </div>
-    
+
     <div class="hidden" id="game-select-modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -42,23 +39,37 @@
                 <div class="mode-section">
                     <h3>Choose Mode</h3>
                     <div class="mode-buttons">
-                        <button class="mode-btn" data-mode="datatypes" onclick="selectMode('datatypes')">
+                        <button class="mode-btn" data-mode="datatypes" onclick="selectModeAndContinue('datatypes')">
                             <i class="fa-solid fa-database"></i>
                             Data Types
                         </button>
-                        <button class="mode-btn" data-mode="vb" onclick="selectMode('vb')">
+                        <button class="mode-btn" data-mode="vb" onclick="selectModeAndContinue('vb')">
                             <i class="fa-solid fa-code"></i>
                             Visual Basic
                         </button>
-                        <button class="mode-btn" data-mode="html" onclick="selectMode('html')">
+                        <button class="mode-btn" data-mode="html" onclick="selectModeAndContinue('html')">
                             <i class="fa-brands fa-html5"></i>
                             HTML
                         </button>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hidden" id="difficulty-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Select Difficulty</h2>
+                <button class="closebtn" onclick="closeDifficultyModal()">X</button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="selection-summary">
+                    <p>Mode: <span id="selected-mode-display">--</span></p>
+                </div>
                 
                 <div class="difficulty-section">
-                    <h3>Select Difficulty</h3>
                     <div class="difficulty-buttons">
                         <button class="diff-btn" data-difficulty="easy" onclick="selectDifficulty('easy')">
                             <i class="fa-solid fa-star-half-stroke"></i>
@@ -76,13 +87,15 @@
                 </div>
                 
                 <div class="selection-summary">
-                    <p>Selected: <span id="selected-mode">--</span> | <span id="selected-difficulty">--</span></p>
+                    <p>Selected: <span id="selected-difficulty">--</span></p>
                 </div>
                 
                 <button class="start-game-btn" id="start-game-btn" onclick="startGame()" disabled>
                     Start Game
                 </button>
             </div>
+        </div>
+    </div>
         </div>
     </div>
 
@@ -134,13 +147,13 @@
             <div class="auth-panel-body">
                 <form class="auth-form" id="login-form" onsubmit="handleLogin(event)">
                     <div class="auth-field">
+                        <input class="auth-field-input" name="username" id="login-username" autocomplete="username" placeholder=" " required>
                         <span class="auth-field-label">Username</span>
-                        <input class="auth-field-input" name="username" id="login-username" autocomplete="username" required>
                     </div>
                     <div class="auth-field password-field">
-                        <span class="auth-field-label">Password</span>
                         <div class="password-input-wrapper">
-                            <input class="auth-field-input" type="password" name="password" id="login-password" autocomplete="current-password" required>
+                            <input class="auth-field-input" type="password" name="password" id="login-password" autocomplete="current-password" placeholder=" " required>
+                            <span class="auth-field-label">Password</span>
                             <button type="button" class="password-toggle" onclick="togglePassword('login-password', this)">
                                 <i class="fa-solid fa-eye"></i>
                             </button>
@@ -152,22 +165,22 @@
                 
                 <form class="auth-form hidden" id="register-form" onsubmit="handleRegister(event)">
                     <div class="auth-field">
+                        <input class="auth-field-input" name="username" id="reg-username" autocomplete="username" placeholder=" " required>
                         <span class="auth-field-label">Username</span>
-                        <input class="auth-field-input" name="username" id="reg-username" autocomplete="username" required>
                     </div>
                     <div class="auth-field password-field">
-                        <span class="auth-field-label">Password</span>
                         <div class="password-input-wrapper">
-                            <input class="auth-field-input" type="password" name="password" id="reg-password" autocomplete="new-password" required>
+                            <input class="auth-field-input" type="password" name="password" id="reg-password" autocomplete="new-password" placeholder=" " required>
+                            <span class="auth-field-label">Password</span>
                             <button type="button" class="password-toggle" onclick="togglePassword('reg-password', this)">
                                 <i class="fa-solid fa-eye"></i>
                             </button>
                         </div>
                     </div>
                     <div class="auth-field password-field">
-                        <span class="auth-field-label">Confirm Password</span>
                         <div class="password-input-wrapper">
-                            <input class="auth-field-input" type="password" name="password2" id="reg-password2" autocomplete="new-password" required>
+                            <input class="auth-field-input" type="password" name="password2" id="reg-password2" autocomplete="new-password" placeholder=" " required>
+                            <span class="auth-field-label">Confirm Password</span>
                             <button type="button" class="password-toggle" onclick="togglePassword('reg-password2', this)">
                                 <i class="fa-solid fa-eye"></i>
                             </button>
@@ -221,7 +234,6 @@
         function closeGameModal() {
             document.getElementById('game-select-modal').classList.add('hidden');
             document.getElementById('backdrop1').classList.add('backdrop0');
-            resetSelections();
         }
 
         function selectMode(mode) {
@@ -231,11 +243,32 @@
             updateSummary();
         }
 
+        function selectModeAndContinue(mode) {
+            selectedMode = mode;
+            openDifficultyModal();
+            closeGameModal();
+        }
+
+        function openDifficultyModal() {
+            document.getElementById('selected-mode-display').textContent = selectedMode ? selectedMode.toUpperCase() : '--';
+            document.getElementById('selected-difficulty').textContent = '--';
+            selectedDifficulty = null;
+            updateDifficultyButtons();
+            document.getElementById('difficulty-modal').classList.remove('hidden');
+            document.getElementById('backdrop1').classList.remove('backdrop0');
+        }
+
+        function closeDifficultyModal() {
+            document.getElementById('difficulty-modal').classList.add('hidden');
+            document.getElementById('backdrop1').classList.add('backdrop0');
+            resetSelections();
+        }
+
         function selectDifficulty(difficulty) {
             selectedDifficulty = difficulty;
             updateDifficultyButtons();
             updateStartButton();
-            updateSummary();
+            document.getElementById('selected-difficulty').textContent = difficulty ? difficulty.charAt(0).toUpperCase() + difficulty.slice(1) : '--';
         }
 
         function updateModeButtons() {
@@ -278,10 +311,10 @@
             updateModeButtons();
             updateDifficultyButtons();
             updateStartButton();
-            updateSummary();
         }
 
         function startGame() {
+            console.log('startGame called, selectedMode:', selectedMode, 'selectedDifficulty:', selectedDifficulty);
             if (selectedMode && selectedDifficulty) {
                 window.location.href = `game/game.html?mode=${selectedMode}&difficulty=${selectedDifficulty}`;
             }
@@ -340,7 +373,7 @@
         function renderLbRows(rows) {
             const bodyEl = document.getElementById('lb-body');
             if (!rows || rows.length === 0) {
-                bodyEl.innerHTML = '<tr><td colspan="6">No scores yet.</td></tr>';
+                bodyEl.innerHTML = `<tr><td colspan="6"><div class="lb-empty">No scores yet. Be the first!</div></td></tr>`;
                 return;
             }
 
@@ -351,14 +384,28 @@
                 const difficulty = escapeHtml(formatDifficulty(r.difficulty ?? '-'));
                 const level = escapeHtml(r.level ?? '-');
                 const score = escapeHtml(r.score ?? 0);
+                
+                // Rank badge class
+                let rankClass = 'default';
+                if (rank === 1) {
+                    rankClass = 'gold';
+                } else if (rank === 2) {
+                    rankClass = 'silver';
+                } else if (rank === 3) {
+                    rankClass = 'bronze';
+                }
+                
+                // Difficulty class
+                const diffClass = difficulty.toLowerCase();
+                
                 return `
                     <tr>
-                        <td>${rank}</td>
-                        <td>${username}</td>
-                        <td>${mode}</td>
-                        <td>${difficulty}</td>
+                        <td><span class="lb-rank ${rankClass}">${rank}</span></td>
+                        <td class="lb-player">${username}</td>
+                        <td><span class="lb-mode">${mode}</span></td>
+                        <td><span class="lb-difficulty ${diffClass}">${difficulty}</span></td>
                         <td>${level}</td>
-                        <td>${score}</td>
+                        <td class="lb-score">${score}</td>
                     </tr>
                 `;
             }).join('');
@@ -564,6 +611,10 @@
         async function checkLoginStatus() {
             try {
                 const response = await fetch('auth/me.php');
+                if (!response.ok || !response.headers.get('content-type')?.includes('application/json')) {
+                    // Server not available or not returning JSON
+                    return;
+                }
                 const data = await response.json();
                 
                 const welcomeUsername = document.getElementById('welcome-username');
@@ -583,7 +634,7 @@
                     };
                 }
             } catch (error) {
-                console.error('Error checking login status:', error);
+                // Silently handle - server not available
             }
         }
 

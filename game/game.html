@@ -65,15 +65,23 @@
         const gameMode = urlParams.get('mode');
         const gameDifficulty = urlParams.get('difficulty');
 
-        if (gameMode) {
+        console.log('URL:', window.location.href);
+        console.log('mode:', gameMode);
+        console.log('difficulty:', gameDifficulty);
+
+        if (gameMode && gameMode !== 'null') {
             const modeDisplay = gameMode === 'datatypes' ? 'Data Types' : 
                               gameMode === 'vb' ? 'Visual Basic' : gameMode;
             document.getElementById('game-mode').textContent = modeDisplay;
+        } else {
+            document.getElementById('game-mode').textContent = '--';
         }
 
-        if (gameDifficulty) {
+        if (gameDifficulty && gameDifficulty !== 'null') {
             const diffDisplay = gameDifficulty.charAt(0).toUpperCase() + gameDifficulty.slice(1);
             document.getElementById('game-difficulty').textContent = diffDisplay;
+        } else {
+            document.getElementById('game-difficulty').textContent = '--';
         }
 
         const htmlElement = document.documentElement;
